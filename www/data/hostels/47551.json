@@ -1,0 +1,54 @@
+{
+    "hostels": [
+        { 
+            "_id": 7,
+            "address": "Calle 1 # 2-4",
+            "prices": [150000, null],
+            "avRooms": 5,
+            "sex": 1,
+            "frontPhoto": null,
+            "conforts": [3, 7, 2],
+            "location": { "latitude": 10.4623222, "longitude": -74.6196667 }
+        },
+        { 
+            "_id": 8,
+            "address": "Carrera 1 # 2-3",
+            "prices": [null, 450000],
+            "avRooms": 0,
+            "sex": 2,
+            "frontPhoto": null,
+            "conforts": [2, 7, 4, 1, 6],
+            "location": { "latitude": 10.4612422, "longitude": -74.6218556 }
+        },
+        { 
+            "_id": 9,
+            "address": "Calle 1 # 2-3",
+            "prices": [300000, 500000],
+            "avRooms": 1,
+            "sex": 3,
+            "frontPhoto": null,
+            "conforts": [3, 5],
+            "location": { "latitude": 10.4609876, "longitude": -74.6170000 }
+        },
+        { 
+            "_id": 10,
+            "address": "Calle 1 # 2-3",
+            "prices": [170000, null],
+            "avRooms": 2,
+            "sex": 2,
+            "frontPhoto": null,
+            "conforts": [1, 2, 3, 4, 5, 6, 7],
+            "location": { "latitude": 10.4622876, "longitude": -74.6220000 }
+        },
+        { 
+            "_id": 11,
+            "address": "Calle 1 # 2-3",
+            "prices": [225000, 450000], 
+            "avRooms": 0,
+            "sex": 3,
+            "frontPhoto": null,
+            "conforts": [3, 5, 7, 2, 6],
+            "location": { "latitude": 10.4619876, "longitude": -74.6210000 }
+        }
+    ]
+}

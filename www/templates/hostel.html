@@ -1,0 +1,82 @@
+<ion-view view-title="Pensión">
+    <ion-tabs class="tabs-positive tabs-icon-top tabs-top">
+        <ion-tab title="Descripción" icon="ion-edit">
+            <ion-header-bar></ion-header-bar>
+            <ion-content has-header="true" has-tabs="true">
+                <div class="list card">
+                    <ion-item class="item-avatar">
+                        <img ng-src="{{frontPhoto}}"/>
+                        <h2>{{hostel.address}}</h2>
+                    </ion-item>
+                    <ion-item class="item item-body">
+                        <h2>Sexo: </h2><p>{{sex}}</p>
+                        <div ng-if="hostel.prices[0]">
+                            <h2>Precio solo cupo: </h2>
+                            <p>{{hostel.prices[0] | currency: "$"}}</p>
+                        </div>
+                        <div ng-if="hostel.prices[1]">
+                            <h2>Precio cupo completo: </h2>
+                            <p>{{hostel.prices[1] | currency: "$"}}</p>
+                        </div>
+                        <h2>Cupos disponibles: 
+                            <span class="av-rooms av-rooms-{{hostel.avRooms === 0? '0' : '1'}}">
+                                {{hostel.avRooms}}
+                            </span>
+                        </h2>
+                        <div>
+                            <h2>Comodidades:</h2>
+                            <img ng-repeat="confort in hostel.conforts" ng-src="{{getConfortIcon(confort)}}"/>
+                        </div>
+                    </ion-item>
+                    <div class="item item-text-wrap">
+                        {{hostel.description}}
+                    </div>
+                </div>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="Galería" icon="ion-images">
+            <ion-header-bar></ion-header-bar>
+            <ion-content has-header="true" has-tabs="true">
+                <div ng-controller="GalleryCtrl">
+                    <div class="row" ng-repeat="photo in photos" ng-if="$index % 4 === 0">
+                        <div class="col col-25" ng-if="$index < photos.length">
+                            <img ng-src="{{photos[$index]}}" ng-click="showImages($index)" width="100%" />
+                        </div>
+                        <div class="col col-25" ng-if="$index + 1 < photos.length">
+                            <img ng-src="{{photos[$index + 1]}}" ng-click="showImages($index + 1)" width="100%" />
+                        </div>
+                        <div class="col col-25" ng-if="$index + 2 < photos.length">
+                            <img ng-src="{{photos[$index + 2]}}" ng-click="showImages($index + 2)" width="100%" />
+                        </div>
+                        <div class="col col-25" ng-if="$index + 3 < photos.length">
+                            <img ng-src="{{photos[$index + 3]}}" ng-click="showImages($index + 3)" width="100%" />
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="Contacto" icon-on="ion-ios-telephone" icon-off="ion-ios-telephone-outline">
+            <ion-header-bar></ion-header-bar>
+            <ion-content has-header="true" has-tabs="true">
+                <div class="list card">
+                    <ion-item class="item-icon-left">
+                        <i class="icon ion-person"></i>
+                        <h2>{{hostel.user.name}}</h2>
+                    </ion-item>
+                    <ion-item class="item-icon-left" ng-repeat="phone in hostel.user.phones">
+                        <i class="icon ion-ios-telephone"></i>
+                        <h2>{{phone}}</h2>
+                    </ion-item>
+                </div>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="Ubicación" icon-on="ion-ios-location" icon-off="ion-ios-location-outline" class="tab-map">
+            <ion-header-bar></ion-header-bar>
+            <ion-content data-tap-disabled="true">
+                <ui-gmap-google-map center='map.center' zoom='map.initialZoom'>
+                    <ui-gmap-marker coords="hostel.marker.coords" options="hostel.marker.options" events="hostel.marker.events" idkey="hostel.marker.id"></ui-gmap-marker>
+                </ui-gmap-google-map>
+            </ion-content>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

@@ -1,0 +1,27 @@
+ <ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Seleccionar ciudad</h1>
+        <div class="buttons">
+            <button ng-if="selectCityCloseable" class="button button-clear" ng-click="closeSelectCityModal()">Close</button>
+        </div>
+    </ion-header-bar>
+     <ion-content ng-controller="SelectCityCtrl">
+        <ion-list>
+            <div ng-repeat="state in states">
+                <ion-item class="item-stable"
+                        ng-click="toggleState(state)"
+                        ng-class="{active: isStateShown(state)}">
+                        <i class="icon" ng-class="isStateShown(state) ? 'ion-minus' : 'ion-plus'"></i>
+                        &nbsp;
+                        {{state.name}}
+                </ion-item>
+                <ion-item class="item-accordion"
+                        ng-repeat="city in state.cities"
+                        ng-show="isStateShown(state)"
+                        ng-click="selectCity(city, state)">
+                    {{city.name}}
+                </ion-item>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

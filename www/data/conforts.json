@@ -1,0 +1,11 @@
+{
+    "conforts": [
+        {"_id": 1, "name": "Aire Acondicionado", "icon": "air.png"},
+        {"_id": 2, "name": "WiFi", "icon": "wifi.png"},
+        {"_id": 3, "name": "Lavado", "icon": "washing.png"},
+        {"_id": 4, "name": "Cocina", "icon": "kitchen.png"},
+        {"_id": 5, "name": "Tel. Fijo", "icon": "telephone.png"},
+        {"_id": 6, "name": "Televisor", "icon": "tv.png"},
+        {"_id": 7, "name": "Almuerzos", "icon": "lunch.png"}
+    ]
+}

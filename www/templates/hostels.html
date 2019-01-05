@@ -1,0 +1,43 @@
+<ion-view view-title="Pensiones">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear">Filtrar</button>
+    </ion-nav-buttons>
+    <ion-header-bar class="bar-stable bar-subheader" ng-if="!isAndroid">
+        <h1 class="title">{{currentCity.city.name}} <span class="royal">({{currentCity.state.name}})</span></h1>
+        <button class="button button-outline button-positive" ng-click="openSelectCityModal(true)">Cambiar</button>
+    </ion-header-bar>
+    <ion-tabs class="tabs-positive tabs-icon-top">
+        <ion-tab title="Lista" icon-on="ion-ios-list" icon-off="ion-ios-list-outline">
+            <ion-header-bar ng-if="isAndroid"></ion-header-bar>
+            <ion-content has-header="true" has-tabs="true" ng-class="isAndroid? 'fix-footer-height' : 'fix-header-height'">
+                <ion-list>
+                    <div class="card" ng-repeat="hostel in hostels">
+                        <ion-item class="item-avatar" ui-sref="app.hostel({hostelId: hostel._id})">
+                            <img ng-src="{{getFrontPhoto(hostel)}}"/>
+                            <h2>{{hostel.address}}</h2>
+                            <p>{{getPrice(hostel)}}</p>
+                            <img ng-repeat="confort in hostel.conforts" ng-if="$index < 5" ng-src="{{getConfortIcon(confort)}}" class="confort-thumb"/>
+                            <span class="badge badge-{{hostel.avRooms === 0? 'assertive' : 'balanced'}} av-rooms">
+                                <span>{{hostel.avRooms}}</span>
+                                {{hostel.avRooms === 1? 'cupo' : 'cupos'}}
+                            </span>
+                            <div class="item-note">{{getSexText(hostel)}}</div>
+                        </ion-item>
+                    </div>
+                </ion-list>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="Mapa" icon="ion-map" class="tab-map">
+            <ion-header-bar ng-if="isAndroid"></ion-header-bar>
+            <ion-content data-tap-disabled="true" ng-class="isAndroid? 'fix-footer-height' : 'fix-header-height'">
+                <ui-gmap-google-map center='map.center' zoom='map.initialZoom'>
+                    <ui-gmap-marker ng-repeat="hostel in hostels" coords="hostel.marker.coords" options="hostel.marker.options" events="hostel.marker.events" idkey="hostel.marker.id"></ui-gmap-marker>
+                </ui-gmap-google-map>
+            </ion-content>
+        </ion-tab>
+    </ion-tabs>
+    <ion-footer-bar class="bar-stable" ng-if="isAndroid">
+        <h1 class="title">{{currentCity.city.name}} <span class="royal">({{currentCity.state.name}})</span></h1>
+        <button class="button button-outline button-positive" ng-click="openSelectCityModal(true)">Cambiar</button>
+    </ion-footer-bar>
+</ion-view>

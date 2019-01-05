@@ -1,0 +1,33 @@
+{
+    "states": [
+        {
+            "_id": 1,
+            "code": 8,
+            "name" : "Atlántico",
+            "cities" : [
+                {
+                    "code": 8001,
+                    "name": "Barranquilla",
+                    "location": { "latitude": 10.9638889, "longitude": -74.7963889 }
+                }
+            ]
+        },
+        {
+            "_id": 2,
+            "code": 47,
+            "name" : "Magdalena",
+            "cities" : [
+                {
+                    "code": 47001,
+                    "name": "Santa Marta",
+                    "location": { "latitude": 11.2472222, "longitude": -74.2016667 }
+                },
+                {
+                    "code": 47551,
+                    "name": "Pivijay",
+                    "location": { "latitude": 10.4612025, "longitude": -74.6234301 }
+                }
+            ]
+        }
+    ]
+}

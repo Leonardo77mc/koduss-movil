@@ -1,0 +1,9 @@
+{
+    "_id": 16,
+    "description": "Esta es la descripción de la pensión 4",
+    "photos": [1, 2, 3, 4],
+    "user": {
+        "name": "José Pertuz",
+        "phones": ["3183456789", "3043456780"]
+    }
+}
